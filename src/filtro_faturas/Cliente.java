@@ -26,4 +26,16 @@ public class Cliente {
 		return estado;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setDataInclusao(LocalDate dataInclusao) {
+		this.dataInclusao = dataInclusao;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
 }

@@ -40,4 +40,24 @@ class Test_cliente {
         assertEquals("SP", cliente.getEstado());
     }
     
+    @Test
+    public void testSetNomeCliente() {
+    	cliente.setNome("Fábio");
+        assertEquals("Fábio", cliente.getNome());
+    }
+
+    @Test
+    public void testSetDataInclusaoCliente() {
+    	LocalDate novaDataInclusao = LocalDate.of(2021, 1, 1);
+    	cliente.setDataInclusao(novaDataInclusao);
+        assertEquals(novaDataInclusao, cliente.getDataInclusao());
+    }
+
+    @Test
+    public void testSetEstadoCliente() {
+    	cliente.setEstado("PB");
+        assertEquals("PB", cliente.getEstado());
+    }
+
+    
 }
