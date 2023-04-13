@@ -26,4 +26,16 @@ public class Fatura {
 		return dataFatura;
 	}
 
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
+	public void setDataFatura(LocalDate dataFatura) {
+		this.dataFatura = dataFatura;
+	}
+
 }

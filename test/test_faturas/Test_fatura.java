@@ -39,5 +39,24 @@ class Test_fatura {
         LocalDate dataFatura = LocalDate.now();
         assertEquals(dataFatura, fatura.getDataFatura());
     }
+    
+    @Test
+    public void testSetCodigoFatura() {
+    	fatura.setCodigo("002");
+        assertEquals("002", fatura.getCodigo());
+    }
+	
+	@Test
+    public void testSetValorFatura() {
+		fatura.setValor(101);
+        assertEquals(101, fatura.getValor(), 0.001);
+    }
+
+    @Test
+    public void testSetDataFatura() {
+        LocalDate novaDataFatura = LocalDate.of(1990, 5, 20);
+        fatura.setDataFatura(novaDataFatura);
+        assertEquals(novaDataFatura, fatura.getDataFatura());
+    }
 
 }
