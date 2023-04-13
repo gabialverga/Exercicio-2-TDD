@@ -6,7 +6,7 @@ public class FiltroFatura {
 	
 	private List<Fatura> listaFaturas;
 	
-	public FiltroFatura(List listaFaturas) {
+	public FiltroFatura(List<Fatura> listaFaturas) {
 		this.listaFaturas = listaFaturas;
 	}
 
