@@ -14,4 +14,16 @@ public class Fatura {
 		this.dataFatura = dataFatura;
 	}
 
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public double getValor() {
+		return valor;
+	}
+
+	public LocalDate getDataFatura() {
+		return dataFatura;
+	}
+
 }
