@@ -14,4 +14,16 @@ public class Cliente {
 		this.estado = estado;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
+	public LocalDate getDataInclusao() {
+		return dataInclusao;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
 }
