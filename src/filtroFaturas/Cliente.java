@@ -1,4 +1,4 @@
-package filtro_faturas;
+package filtroFaturas;
 
 import java.time.LocalDate;
 

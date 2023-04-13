@@ -1,4 +1,4 @@
-package test_faturas;
+package testFiltroFaturas;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,9 +7,9 @@ import java.time.LocalDate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import filtro_faturas.Cliente;
+import filtroFaturas.Cliente;
 
-class Test_cliente {
+class TestCliente {
 	
 	private Cliente cliente;
 	private LocalDate dataInclusao;

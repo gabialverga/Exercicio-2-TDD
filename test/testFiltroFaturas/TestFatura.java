@@ -1,16 +1,16 @@
-package test_faturas;
+package testFiltroFaturas;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import filtro_faturas.Cliente;
-import filtro_faturas.Fatura;
+import filtroFaturas.Cliente;
+import filtroFaturas.Fatura;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 
-class Test_fatura {
+class TestFatura {
 
 	private Fatura fatura;
 	private Cliente cliente;
