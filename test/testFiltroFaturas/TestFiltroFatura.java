@@ -97,4 +97,16 @@ class TestFiltroFatura {
         assertEquals(1, filtroFatura.getNumeroFaturas());
     }
     
+    @Test
+    public void testRemoverFaturas4000ClienteSul() {
+    	filtroFatura.setFaturas(fatura1);
+
+    	Cliente cliente2 = new Cliente("Kleber", LocalDate.now(), "RS");
+        Fatura fatura2 = new Fatura("002", 5000, LocalDate.now(), cliente2);
+        filtroFatura.setFaturas(fatura2);
+        
+        assertEquals(2, filtroFatura.getNumeroFaturas());
+        filtroFatura.removerFaturas4000ClienteSul();
+        assertEquals(1, filtroFatura.getNumeroFaturas());
+    }
 }

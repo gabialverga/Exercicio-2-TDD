@@ -56,4 +56,16 @@ public class FiltroFatura {
 		}
 	}
 
+	public void removerFaturas4000ClienteSul() {
+		List estadosSul = new ArrayList<String>();
+		estadosSul.add("SC");
+		estadosSul.add("RS");
+		estadosSul.add("PR");
+		for (int i = 0; i < listaFaturas.size(); i++) {
+			if (listaFaturas.get(i).getValor() > 4000 & estadosSul.contains(listaFaturas.get(i).getCliente().getEstado())) {
+				listaFaturas.remove(i);
+			}
+		}
+	}
+
 }
