@@ -3,6 +3,7 @@ package test_faturas;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import filtro_faturas.Cliente;
 import filtro_faturas.Fatura;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,11 +13,15 @@ import java.time.LocalDate;
 class Test_fatura {
 
 	private Fatura fatura;
+	private Cliente cliente;
 	
 	@BeforeEach
     public void setUp() {
+		LocalDate dataInclusao = LocalDate.of(2021, 1, 1);
+        cliente = new Cliente("João", dataInclusao, "SP");
+        
         LocalDate dataFatura = LocalDate.now();
-        fatura = new Fatura("001", 100.0, dataFatura);
+        fatura = new Fatura("001", 100.0, dataFatura, cliente);
     }
 	
 	@Test
@@ -57,6 +62,19 @@ class Test_fatura {
         LocalDate novaDataFatura = LocalDate.of(1990, 5, 20);
         fatura.setDataFatura(novaDataFatura);
         assertEquals(novaDataFatura, fatura.getDataFatura());
+    }
+    
+    @Test
+    public void testGetCliente() {
+        assertEquals(cliente, fatura.getCliente());
+    }
+    
+    @Test
+    public void testSetCliente() {
+    	LocalDate dataInclusao = LocalDate.of(2021, 1, 1);
+    	Cliente novoCliente = new Cliente("Geraldo", dataInclusao, "RS");
+    	fatura.setCliente(novoCliente);
+        assertEquals(novoCliente, fatura.getCliente());
     }
 
 }
