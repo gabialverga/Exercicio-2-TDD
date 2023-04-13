@@ -70,4 +70,16 @@ class TestFiltroFatura {
         assertEquals(1, filtroFatura.getNumeroFaturas());
     }
     
+    @Test
+    public void testRemoverFaturas2000e2500UmMes() {
+    	filtroFatura.setFaturas(fatura1);
+
+    	LocalDate dataMesAtras = LocalDate.now().minusMonths(1);
+        Fatura fatura2 = new Fatura("002", 2500.0, dataMesAtras, cliente);
+        filtroFatura.setFaturas(fatura2);
+        
+        assertEquals(2, filtroFatura.getNumeroFaturas());
+        filtroFatura.removerFaturas2000e2500UmMes();
+        assertEquals(1, filtroFatura.getNumeroFaturas());
+    }
 }

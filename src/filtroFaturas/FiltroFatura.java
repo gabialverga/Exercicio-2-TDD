@@ -1,5 +1,6 @@
 package filtroFaturas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,20 +30,18 @@ public class FiltroFatura {
 				listaFaturas.remove(i);
 			}
 		}
-		
 	}
 
 	public void removerFaturas2000e2500UmMes() {
-		List<Fatura> novaLista = new ArrayList<>();
-		
-		for (Fatura fatura: listaFaturas) {
-			if (fatura.getValor() >= 2000 | fatura.getValor() < 2000) {
-				novaLista.add(fatura);
+		LocalDate umMesAtras = LocalDate.now().minusMonths(1);
+		for (int i = 0; i < listaFaturas.size(); i++) {
+			if (
+					(listaFaturas.get(i).getValor() >= 2000 | listaFaturas.get(i).getValor() < 2500) 
+					& listaFaturas.get(i).getDataFatura().getMonthValue() <= umMesAtras.getMonthValue()
+				) {
+				listaFaturas.remove(i);
 			}
 		}
-		
-		this.listaFaturas = novaLista;
-		
 	}
 
 }
