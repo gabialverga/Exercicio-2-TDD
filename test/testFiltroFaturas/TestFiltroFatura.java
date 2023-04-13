@@ -69,4 +69,5 @@ class TestFiltroFatura {
         filtroFatura.removerFaturasMenor2000();
         assertEquals(1, filtroFatura.getNumeroFaturas());
     }
+    
 }
