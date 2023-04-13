@@ -10,4 +10,8 @@ public class FiltroFatura {
 		this.listaFaturas = listaFaturas;
 	}
 
+	public List<Fatura> getListaFaturas() {
+		return listaFaturas;
+	}
+
 }
