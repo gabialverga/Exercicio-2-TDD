@@ -13,5 +13,9 @@ public class FiltroFatura {
 	public List<Fatura> getListaFaturas() {
 		return listaFaturas;
 	}
+	
+	public void setFaturas(Fatura fatura) {
+		listaFaturas.add(fatura);
+	}
 
 }
