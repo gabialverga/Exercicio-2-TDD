@@ -36,8 +36,20 @@ public class FiltroFatura {
 		LocalDate umMesAtras = LocalDate.now().minusMonths(1);
 		for (int i = 0; i < listaFaturas.size(); i++) {
 			if (
-					(listaFaturas.get(i).getValor() >= 2000 | listaFaturas.get(i).getValor() < 2500) 
+					(listaFaturas.get(i).getValor() > 2000 | listaFaturas.get(i).getValor() < 2500) 
 					& listaFaturas.get(i).getDataFatura().getMonthValue() <= umMesAtras.getMonthValue()
+				) {
+				listaFaturas.remove(i);
+			}
+		}
+	}
+
+	public void removerFaturas2500e3000ClienteDoisMeses() {
+		LocalDate doisMesAtras = LocalDate.now().minusMonths(2);
+		for (int i = 0; i < listaFaturas.size(); i++) {
+			if (
+					(listaFaturas.get(i).getValor() > 2500 | listaFaturas.get(i).getValor() < 3000) 
+					& listaFaturas.get(i).getCliente().getDataInclusao().getMonthValue() <= doisMesAtras.getMonthValue()
 				) {
 				listaFaturas.remove(i);
 			}

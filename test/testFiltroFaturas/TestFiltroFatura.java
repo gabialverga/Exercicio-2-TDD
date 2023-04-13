@@ -19,7 +19,7 @@ class TestFiltroFatura {
 	private FiltroFatura filtroFatura;
 	private Fatura fatura1;
 	private LocalDate dataInclusao;
-	private Cliente cliente;
+	private Cliente cliente1;
 	private LocalDate dataFatura;
 
 	@BeforeEach
@@ -28,10 +28,10 @@ class TestFiltroFatura {
 		filtroFatura = new FiltroFatura(listaFaturas);
 		
 		dataInclusao = LocalDate.of(2021, 1, 1);
-		cliente = new Cliente("João", dataInclusao, "SP");
+		cliente1 = new Cliente("João", dataInclusao, "SP");
         
 		dataFatura = LocalDate.now();
-        fatura1 = new Fatura("001", 100.0, dataFatura, cliente);
+        fatura1 = new Fatura("001", 100.0, dataFatura, cliente1);
 	}
 
 	@Test
@@ -62,7 +62,7 @@ class TestFiltroFatura {
     public void testRemoverFaturasMenor2000() {
     	filtroFatura.setFaturas(fatura1);
 
-        Fatura fatura2 = new Fatura("002", 2500.0, LocalDate.now(), cliente);
+        Fatura fatura2 = new Fatura("002", 2500.0, LocalDate.now(), cliente1);
         filtroFatura.setFaturas(fatura2);
         
         assertEquals(2, filtroFatura.getNumeroFaturas());
@@ -75,11 +75,25 @@ class TestFiltroFatura {
     	filtroFatura.setFaturas(fatura1);
 
     	LocalDate dataMesAtras = LocalDate.now().minusMonths(1);
-        Fatura fatura2 = new Fatura("002", 2500.0, dataMesAtras, cliente);
+        Fatura fatura2 = new Fatura("002", 2500.0, dataMesAtras, cliente1);
         filtroFatura.setFaturas(fatura2);
         
         assertEquals(2, filtroFatura.getNumeroFaturas());
         filtroFatura.removerFaturas2000e2500UmMes();
+        assertEquals(1, filtroFatura.getNumeroFaturas());
+    }
+    
+    @Test
+    public void testRemoverFaturas2500e300ClienteDoisMeses() {
+    	filtroFatura.setFaturas(fatura1);
+
+    	LocalDate dataDoisMesAtras = LocalDate.now().minusMonths(3);
+    	Cliente cliente2 = new Cliente("Pedro", dataDoisMesAtras, "RJ");
+        Fatura fatura2 = new Fatura("002", 2500.0, LocalDate.now(), cliente2);
+        filtroFatura.setFaturas(fatura2);
+        
+        assertEquals(2, filtroFatura.getNumeroFaturas());
+        filtroFatura.removerFaturas2500e3000ClienteDoisMeses();
         assertEquals(1, filtroFatura.getNumeroFaturas());
     }
 }
