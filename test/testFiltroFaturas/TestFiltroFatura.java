@@ -96,4 +96,5 @@ class TestFiltroFatura {
         filtroFatura.removerFaturas2500e3000ClienteDoisMeses();
         assertEquals(1, filtroFatura.getNumeroFaturas());
     }
+    
 }
