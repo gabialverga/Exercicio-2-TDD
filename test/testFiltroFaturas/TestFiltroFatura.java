@@ -87,9 +87,9 @@ class TestFiltroFatura {
     public void testRemoverFaturas2500e300ClienteDoisMeses() {
     	filtroFatura.setFaturas(fatura1);
 
-    	LocalDate dataDoisMesAtras = LocalDate.now().minusMonths(3);
+    	LocalDate dataDoisMesAtras = LocalDate.now().minusMonths(2);
     	Cliente cliente2 = new Cliente("Pedro", dataDoisMesAtras, "RJ");
-        Fatura fatura2 = new Fatura("002", 2500.0, LocalDate.now(), cliente2);
+        Fatura fatura2 = new Fatura("002", 2500, LocalDate.now(), cliente2);
         filtroFatura.setFaturas(fatura2);
         
         assertEquals(2, filtroFatura.getNumeroFaturas());
